@@ -1,5 +1,5 @@
 /* -----------------------------------------------------------------
-   Header.tsx  –  React / Next 13+  |  Tailwind 3.x  |  Framer-motion
+   Header.tsx  –  Modern Dark Mode Header with Spectacular Animations
 ------------------------------------------------------------------ */
 "use client";
 
@@ -10,19 +10,26 @@ import {
   XMarkIcon,
   MagnifyingGlassIcon,
   ShoppingCartIcon,
+  HomeIcon,
+  CubeIcon,
+  PhoneIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 /* ------------- data ---------------- */
 const NAV_LINKS = [
-  { href: "#docs", label: "Docs" },
-  { href: "#guides", label: "Guides" },
-  { href: "#skills", label: "Get the skills" },
+  { href: "/", label: "Home", icon: HomeIcon },
+  { href: "/products", label: "Products", icon: CubeIcon },
+  { href: "#contact", label: "Contact", icon: PhoneIcon },
+  { href: "#about", label: "About", icon: SparklesIcon },
 ];
 
 /* ------------- component ------------ */
 export default function Header() {
-  const [open, setOpen]       = useState(false);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScroll] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   /* shadow / blur after scroll --------------------------------- */
   useEffect(() => {
